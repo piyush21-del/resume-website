@@ -1,0 +1,220 @@
+/* =========================
+   Figma to HTML Pixel-Perfect CSS
+   Author: ChatGPT
+   Notes:
+   - Mobile-first, fully responsive
+   - Pixel values matched to Figma design
+   - Clean and maintainable
+=========================== */
+
+/* =========================
+   VARIABLES
+=========================== */
+:root {
+  --bg-pink: #ffe9ec;
+  --accent-pink: #ff2050;
+  --muted: #7b7b7b;
+  --card-bg: #ffffff;
+  --radius: 18px;
+  --container-width: 420px;
+  --font-sans: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+/* =========================
+   RESET & BASE
+=========================== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-pink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #111;
+  display: flex;
+  justify-content: center;
+  padding: 18px 12px;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+}
+
+/* =========================
+   HERO SECTION
+=========================== */
+.hero {
+  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 100%);
+  padding: 20px;
+  border-radius: 22px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hero-copy { text-align: center; }
+.hero-title {
+  font-size: 28px;
+  line-height: 1.05;
+  font-weight: 700;
+  margin-top: 6px;
+  letter-spacing: -0.3px;
+  color: #111;
+}
+.hero-title .accent {
+  color: var(--accent-pink);
+  display: inline-block;
+}
+.hero-sub {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #4b4b4b;
+  margin: 14px 6px 18px;
+  padding: 0 6px;
+}
+.cta-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.btn {
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-weight: 600;
+  font-size: 13px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  min-width: 160px;
+}
+.btn-outline {
+  background: transparent;
+  border-color: #ffd7df;
+  color: var(--accent-pink);
+  box-shadow: 0 2px 0 rgba(0,0,0,0.03) inset;
+}
+.btn-primary {
+  background: linear-gradient(180deg, var(--accent-pink), #ff3b5b);
+  color: white;
+  box-shadow: 0 6px 18px rgba(255,32,80,0.15);
+}
+
+.hero-image-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+.hero-image {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  border-radius: 28px;
+  object-fit: cover;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  border: 6px solid transparent;
+  margin-top: 10px;
+  display: block;
+}
+
+/* =========================
+   FEATURE FRAME SECTION
+=========================== */
+.feature-frame {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+}
+.frame-image {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  border-radius: 28px;
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  border: 6px solid transparent;
+}
+
+/* =========================
+   WHAT YOU GET SECTION
+=========================== */
+.what-you-get {
+  margin-top: 18px;
+  padding: 12px 2px 36px;
+  text-align: center;
+}
+.pill {
+  background: #fbdbe0;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 16px;
+  color: var(--accent-pink);
+  box-shadow: 0 3px 0 rgba(0,0,0,0.03);
+}
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-top: 8px;
+  padding: 0 6px;
+}
+.card {
+  background: var(--card-bg);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+  text-align: left;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+.card-illustration {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: #fff4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.card-title {
+  font-size: 16px;
+  margin-bottom: 8px;
+  font-weight: 700;
+  color: #111;
+}
+.card-desc {
+  font-size: 13px;
+  color: #6b6b6b;
+  line-height: 1.45;
+}
+.visually-hidden { position: absolute !important; height: 1px; width: 1px; overflow: hidden; clip: rect(1px,1px,1px,1px); white-space: nowrap; }
+
+/* =========================
+   RESPONSIVE DESIGN
+=========================== */
+@media (min-width:520px) {
+  :root { --container-width: 520px; }
+  .hero-title { font-size: 36px; }
+  .hero-sub { font-size: 14px; max-width: 460px; margin-left: auto; margin-right: auto; }
+  .cards { grid-template-columns: 1fr 1fr; gap: 18px; }
+  .card { padding: 20px; }
+  .hero-image, .frame-image { max-width: 460px; }
+}
+
+@media (min-width:900px) {
+  body { padding: 40px; }
+  .container { max-width: 900px; }
+  .hero { display: flex; gap: 30px; align-items: center; text-align: left; padding: 28px; border-radius: 20px; }
+  .hero-copy { flex: 1; }
+  .hero-image-wrap { flex: 1; }
+  .feature-frame { margin-top: 36px; }
+  .frame-image { max-width: 520px; }
+}
